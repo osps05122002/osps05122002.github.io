@@ -8,27 +8,37 @@
         body {
             margin: 0;
             font-family: "Segoe UI", Arial, sans-serif;
-            background-color: #faf7f2;
+            background-color: #f2f9f4; /* soft green */
             color: #3b2f2f;
         }
 
         /* Sidebar Navigation */
         .sidebar {
             height: 100vh;
-            width: 220px;
+            width: 240px;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #795548;
+            background-color: #4e342e; /* rich brown */
             padding-top: 20px;
             color: #fff;
+            box-shadow: 3px 0 8px rgba(0,0,0,0.15);
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d7ccc8;
         }
 
         .sidebar h2 {
             text-align: center;
-            margin: 0 0 15px 0;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            margin: 0 0 20px 0;
+            font-size: 1.5rem;
+            color: #ffecb3; /* warm yellow */
         }
 
         .sidebar a {
@@ -40,27 +50,34 @@
         }
 
         .sidebar a:hover {
-            background-color: #5d4037;
+            background-color: #6d4c41;
         }
 
         /* Main Content Area */
         .content {
-            margin-left: 220px;
+            margin-left: 240px;
             padding: 30px;
         }
 
         .content h1 {
-            font-size: 2.2rem;
-            border-bottom: 3px solid #8d6e63;
-            display: inline-block;
-            padding-bottom: 5px;
+            font-size: 2.4rem;
+            color: #2e7d32; /* deep green */
             margin-top: 0;
         }
 
-        .content p {
-            max-width: 700px;
-            line-height: 1.6;
+        .intro-box {
+            background-color: #e8f5e9; 
+            border-left: 6px solid #43a047; 
+            padding: 15px 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-bottom: 25px;
+        }
+
+        .intro-box p {
             font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4e342e;
         }
 
         .hero {
@@ -69,6 +86,7 @@
             height: 250px;
             border-radius: 8px;
             margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
     </style>
 </head>
@@ -76,38 +94,51 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+        <h3>Menu</h3>
         <h2>Stable Security</h2>
-        <a href="#">Home</a>
-        <a href="#">Bandages and Rugs</a>
-        <a href="#">Clipping</a>
-        <a href="#">Colours and Markings</a>
-        <a href="#">Disciplines</a>
-        <a href="#">Equipment</a>
-        <a href="#">Equine Behaviour</a>
-        <a href="#">Equine First Aid</a>
-        <a href="#">Feeding</a>
-        <a href="#">Shoeing</a>
-        <a href="#">Tack</a>
-        <a href="#">Training</a>
+        #Home</a>
+        #Bandages and Rugs</a>
+        #Clipping</a>
+        #Colours and Markings</a>
+        #Disciplines</a>
+        #Equipment</a>
+        #Equine Behaviour</a>
+        #Equine First Aid</a>
+        #Feeding</a>
+        #Shoeing</a>
+        #Tack</a>
+        #Training</a>
     </div>
 
     <!-- Main Content -->
     <div class="content">
-        <div class="hero"></div>
         <h1>Welcome to Stable Security</h1>
-        <p>
-            At Stable Security, we’re passionate about the world of horses —
-            from riding disciplines and training methods to proper tack care and stable
-            management. Whether you’re a seasoned rider or new to the equestrian community,
-            our goal is to provide helpful resources, guides, and insights to support your
-            horsemanship journey.
-        </p>
-        <p>
-            Explore our sections to learn more about caring for your horse, improving your
-            riding skills, and staying connected with equestrian events and training ideas.
-        </p>
+
+        <div class="intro-box">
+            <p>
+                At Stable Security, we believe that caring for horses is about more than 
+                good feed, quality tack, and proper training — it's also about creating a 
+                stable environment where every detail is managed with confidence and awareness.
+            </p>
+
+            <p>
+                Just as horses rely on clear signals and trustworthy routines, we know that 
+                riders and owners benefit from staying alert, organised, and attentive to 
+                potential risks — whether in the yard, on the field, or behind the scenes.
+                From recognising behavioural cues to understanding how to manage equipment 
+                safely, a well‑run stable is all about good judgement and protection from the 
+                unexpected.
+            </p>
+
+            <p>
+                Explore our guides to discover best practices that help keep both your horses 
+                and your stable well‑protected, resilient, and ready for anything.
+            </p>
+        </div>
+
+        <div class="hero"></div>
+
     </div>
 
 </body>
 </html>
-``
