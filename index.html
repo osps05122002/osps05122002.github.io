@@ -8,67 +8,86 @@
 <style>
     body {
         margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background-color: #e0f7f9; /* soft turquoise */
+       -color: #e0f7f9;
         color: #1c2a3a;
     }
 
     /* Sidebar */
     nav.sidebar {
         height: 100vh;
-        width: 240px;
+        width: 260px;
         position: fixed;
         top: 0;
         left: 0;
-        background-color: #007c91; /* deep turquoise */
+        background-color: #007c91;
         padding-top: 20px;
         box-shadow: 3px 0 8px rgba(0,0,0,0.15);
+        color: white;
+    }
+
+    .logo-box {
+        text-align: center;
+        margin-bottom: 12px;
     }
 
     nav.sidebar h3 {
         text-align: center;
-        font-size: 1.2rem;
-        margin: 0 0 10px;
-        text-transform: uppercase;
+        font-size: 1rem;
+        margin: 5px 0 15px;
+        color: #ffb6d5;
         letter-spacing: 1px;
-        color: #ffb6d5; /* soft pink */
+        text-transform: uppercase;
     }
 
     nav.sidebar h2 {
         text-align: center;
         margin: 0 0 20px;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: #ffffff;
     }
 
     nav.sidebar a {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         padding: 12px 20px;
         text-decoration: none;
+        color: #e3faff;
         font-size: 1rem;
-        color: #e3faff; /* light blue */
     }
 
     nav.sidebar a:hover {
-        background-color: #009db5; /* brighter turquoise */
-        color: #ffdeec; /* pink hint */
+        background-color: #009db5;
+        color: #ffdeec;
+    }
+
+    /* Simple sidebar menu icons (inline SVG) */
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+        fill: #ffdeec;
     }
 
     /* Content */
     .content {
-        margin-left: 240px;
+        margin-left: 260px;
         padding: 30px;
     }
 
+    .page-logo {
+        display: block;
+        margin-bottom: 10px;
+    }
+
     .content h1 {
-        color: #0066cc; /* strong blue */
+        color: #0066cc;
         font-size: 2.4rem;
         margin-top: 0;
     }
 
     .intro-box {
         background-color: #ffffff;
-        border-left: 6px solid #ff74aa; /* bold pink highlight */
+        border-left: 6px solid #ff74aa;
         padding: 15px 20px;
         border-radius: 8px;
         max-width: 800px;
@@ -79,7 +98,6 @@
     .intro-box p {
         font-size: 1.1rem;
         line-height: 1.6;
-        color: #1c2a3a;
     }
 
     .hero {
@@ -97,25 +115,43 @@
 
 <!-- Sidebar -->
 <nav class="sidebar">
+
+    <div class="logo-box">
+        <!-- LOGO IN SIDEBAR -->
+        <svg width="70" height="70" viewBox="0 0 100 100">
+          <path d="M50 5 L90 20 L80 70 L50 95 L20 70 L10 20 Z" fill="#ffffff" stroke="#004d5a" stroke-width="3"/>
+          <path d="M55 30 C60 20, 75 25, 70 40 C68 45, 72 55, 65 60 C60 63, 50 60, 48 55 C46 50, 40 48, 38 50 C36 52, 38 60, 42 63"
+                stroke="#007c91" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+    </div>
+
     <h3>Menu</h3>
     <h2>Stable Security</h2>
 
-    <a href="#">Home</a>
-    <a href="#">Bandages and Rugs</a>
-    <a href="#">Clipping</a>
-    <a href="#">Colours and Markings</a>
-    <a href="#">Disciplines</a>
-    <a href="#">Equipment</a>
-    <a href="#">Equine Behaviour</a>
-    <a href="#">Equine First Aid</a>
-    <a href="#">Feeding</a>
-    <a href="#">Shoeing</a>
-    <a href="#">Tack</a>
-    <a href="#">Training</a>
+    #Home</a>
+    #Bandages and Rugs</a>
+    #Clipping</a>
+    #Colours and Markings</a>
+    #Disciplines</a>
+    #Equipment</a>
+    #Equine Behaviour</a>
+    #Equine First Aid</a>
+    #Feeding</a>
+    #Shoeing</a>
+    #Tack</a>
+    #Training</a>
 </nav>
 
 <!-- Main Content -->
 <div class="content">
+
+    <!-- LOGO ON MAIN PAGE -->
+    <svg class="page-logo" width="100" height="100" viewBox="0 0 100 100">
+        <path d="M50 5 L90 20 L80 70 L50 95 L20 70 L10 20 Z" fill="#007c91" stroke="#004d5a" stroke-width="3"/>
+        <path d="M55 30 C60 20, 75 25, 70 40 C68 45, 72 55, 65 60 C60 63, 50 60, 48 55 C46 50, 40 48, 38 50 C36 52, 38 60, 42 63"
+              stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+
     <h1>Welcome to Stable Security</h1>
 
     <div class="intro-box">
@@ -126,15 +162,14 @@
         </p>
 
         <p>
-            Horses notice small changes quickly — and a stable owner should too. 
-            Whether it's a shift in behaviour, an unfamiliar piece of equipment, or 
-            something that simply feels out of place, staying alert helps prevent 
-            unexpected problems before they arise.
+            Horses notice small changes quickly — and a stable owner should too. Whether 
+            it’s behaviour, equipment, or something simply out of place, staying alert helps 
+            prevent unexpected issues before they arise.
         </p>
 
         <p>
-            Explore our guides and resources to strengthen your stable routines, improve 
-            horse care, and ensure your yard runs smoothly and securely.
+            Explore our guides to strengthen your stable routines, improve horse care, and 
+            ensure your yard runs smoothly and securely.
         </p>
     </div>
 
@@ -143,4 +178,3 @@
 
 </body>
 </html>
-``
