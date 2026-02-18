@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Stable Security</title>
 
 <style>
@@ -11,43 +11,51 @@
         font-family: "Segoe UI", Arial, sans-serif;
         background-color: #e0f7f9; /* soft turquoise */
         color: #1c2a3a;
-        text-align: center;
     }
 
     /* Sidebar */
     nav.sidebar {
         height: 100vh;
-        width: 240px;
+        width: 260px;
         position: fixed;
         top: 0;
         left: 0;
         background-color: #007c91; /* deep turquoise */
         padding-top: 20px;
         box-shadow: 3px 0 8px rgba(0,0,0,0.15);
+        color: white;
+        overflow-y: auto;
+    }
+
+    .logo-box {
+        text-align: center;
+        margin-bottom: 12px;
     }
 
     nav.sidebar h3 {
         text-align: center;
-        font-size: 1.2rem;
-        margin: 0 0 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 0.95rem;
+        margin: 6px 0 12px;
         color: #ffb6d5; /* soft pink */
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
     nav.sidebar h2 {
         text-align: center;
-        margin: 0 0 20px;
-        font-size: 1.5rem;
+        margin: 0 0 16px;
+        font-size: 1.3rem;
         color: #ffffff;
     }
 
     nav.sidebar a {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         padding: 12px 20px;
         text-decoration: none;
-        font-size: 1rem;
         color: #e3faff; /* light blue */
+        font-size: 1rem;
     }
 
     nav.sidebar a:hover {
@@ -55,17 +63,28 @@
         color: #ffdeec; /* pink hint */
     }
 
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+        opacity: 0.95;
+    }
+
     /* Content */
     .content {
-        margin-left: 240px;
+        margin-left: 260px;
         padding: 30px;
+    }
+
+    .page-logo {
+        display: block;
+        margin-bottom: 10px;
     }
 
     .content h1 {
         color: #0066cc; /* strong blue */
-        font-size: 2.4rem;
+        font-size: 2.2rem;
         margin-top: 0;
-        text-align: center;
     }
 
     .intro-box {
@@ -74,19 +93,14 @@
         padding: 15px 20px;
         border-radius: 8px;
         max-width: 800px;
-        margin-bottom: 25px;
+        margin: 0 auto 25px auto; /* centered */
         box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-
     }
 
     .intro-box p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         line-height: 1.6;
         color: #1c2a3a;
-        text-align: center;
     }
 
     .hero {
@@ -94,89 +108,264 @@
             center/cover no-repeat;
         height: 250px;
         border-radius: 8px;
-        margin-bottom: 25px;
+        margin: 20px auto 25px auto;
+        max-width: 1000px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    .h1 {text-align: center;}
 
-    /* Contact Us Box – Top Right Corner */
+    /* Contact box (top-right) – optional, keep if you’re using it */
     .contact-box {
         position: fixed;
         top: 10px;
         right: 20px;
         background-color: #ffffff;
-        border: 2px solid #ff74aa; /* pink highlight */
+        border: 2px solid #ff74aa;
         padding: 10px 15px;
         border-radius: 10px;
         box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-        z-index: 9999;
+        z-index: 9500;
         font-size: 0.9rem;
-        text-align: left;
         color: #1c2a3a;
     }
-    
     .contact-box a {
-        color: #0066cc; /* blue links */
+        color: #0066cc;
         text-decoration: none;
     }
-    
     .contact-box a:hover {
         text-decoration: underline;
+    }
+
+    /* === Popup Styles (integrated) === */
+    .popup-overlay {
+        display: none;                /* hidden by default */
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;              /* above everything */
+    }
+    .popup-box {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 320px;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+        border-top: 6px solid #ff74aa; /* match theme */
+    }
+    .popup-box h2 {
+        margin: 0 0 8px;
+        color: #0066cc;
+        font-size: 1.25rem;
+    }
+    .popup-box p {
+        margin: 0 0 12px;
+        color: #1c2a3a;
+    }
+    .popup-box button {
+        margin-top: 6px;
+        padding: 8px 12px;
+        border: none;
+        background: #007c91; /* deep turquoise */
+        color: #ffffff;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .popup-box button:hover {
+        background: #009db5;
+    }
+
+    /* Anchor targets spacing (so content doesn’t hide behind top of viewport) */
+    .section {
+        scroll-margin-top: 16px;
     }
 </style>
 </head>
 
 <body>
+
+<!-- Optional: Contact Us floating box -->
 <div class="contact-box">
-    <p><strong>Contact Us</strong></p>
-    <p>Email: <a href="mailto:stable.security@ClickFix.test">stable.security@ClickFix.test</a></p>
-    <p>Phone: <a href="tel:0123456789">01 23 45 67 89</a></p>
+    <strong>Contact Us</strong><br/>
+    Email: <a href="mailto:stable.security@ClickFix.test">stable.security@ClickFix.test</a><br/>
+    Phone: <a href="tel:+44123456789">01 23 45 67 89</a>
 </div>
-    
+
 <!-- Sidebar -->
 <nav class="sidebar">
+    <div class="logo-box">
+        <!-- Logo in sidebar -->
+        <svg width="70" height="70" viewBox="0 0 100 100" aria-label="Stable Security Logo">
+          <!-- Shield -->
+          <path d="M50 5 L90 20 L80 70 L50 95 L20 70 L10 20 Z"
+                fill="#ffffff" stroke="#004d5a" stroke-width="3"/>
+          <!-- Horse head -->
+          <path d="M55 30 C60 20, 75 25, 70 40 C68 45, 72 55, 65 60 
+                   C60 63, 50 60, 48 55 C46 50, 40 48, 38 50 
+                   C36 52, 38 60, 42 63"
+                stroke="#007c91" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+    </div>
+
     <h3>Menu</h3>
     <h2>Stable Security</h2>
 
-    <a href="#">Home</a>
-    <a href="#">Bandages and Rugs</a>
-    <a href="#">Clipping</a>
-    <a href="#">Colours and Markings</a>
-    <a href="#">Disciplines</a>
-    <a href="#">Equipment</a>
-    <a href="#">Equine Behaviour</a>
-    <a href="#">Equine First Aid</a>
-    <a href="#">Feeding</a>
-    <a href="#">Shoeing</a>
-    <a href="#">Tack</a>
-    <a href="#">Training</a>
+    <a href="#home" class="section">
+        <!-- Home icon -->
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/>
+        </svg>
+        Home
+    </a>
+
+    <a href="#bandages" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12a4 4 0 014-4h8a4 4 0 010 8H8a4 4 0 01-4-4zm6-1h4v2h-4z"/>
+        </svg>
+        Bandages and Rugs
+    </a>
+
+    <a href="#clipping" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 7l6 6M9 7l-6 6M14 5h7v3h-7zM14 10h7v3h-7z"/>
+        </svg>
+        Clipping
+    </a>
+
+    <a href="#colours" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a9 9 0 100 18c4 0 5-2 5-3a2 2 0 00-2-2h-2a2 2 0 110-4h1a3 3 0 000-6z"/>
+        </svg>
+        Colours and Markings
+    </a>
+
+    <a href="#disciplines" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 18l8-12 8 12H4z"/>
+        </svg>
+        Disciplines
+    </a>
+
+    <a href="#equipment" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3h10v4H7zM5 9h14v12H5z"/>
+        </svg>
+        Equipment
+    </a>
+
+    <a href="#behaviour" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a6 6 0 016 6c0 3-3 5-6 9-3-4-6-6-6-9a6 6 0 016-6z"/>
+        </svg>
+        Equine Behaviour
+    </a>
+
+    <a href="#firstaid" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 4h8l2 4h2a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8a2 2 0 012-2h2l2-4zm3 6v3H8v2h3v3h2v-3h3v-2h-3v-3h-2z"/>
+        </svg>
+        Equine First Aid
+    </a>
+
+    <a href="#feeding" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h18v2H3zm2 4h14l-2 8H7l-2-8z"/>
+        </svg>
+        Feeding
+    </a>
+
+    <a href="#shoeing" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9h-3c0 3-3 6-6 6s-6-3-6-6 3-6 6-6V3z"/>
+        </svg>
+        Shoeing
+    </a>
+
+    <a href="#tack" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 7h10l1 3-6 10-6-10 1-3z"/>
+        </svg>
+        Tack
+    </a>
+
+    <a href="#training" class="section">
+        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 5h16v4H4zM4 11h10v8H4z"/>
+        </svg>
+        Training
+    </a>
 </nav>
 
 <!-- Main Content -->
 <div class="content">
-    <h1 style="font-size:60px;">Welcome to Stable Security</h1>
+
+    <!-- Logo on main page -->
+    <svg class="page-logo" width="100" height="100" viewBox="0 0 100 100" aria-label="Stable Security Logo">
+        <path d="M50 5 L90 20 L80 70 L50 95 L20 70 L10 20 Z" fill="#007c91" stroke="#004d5a" stroke-width="3"/>
+        <path d="M55 30 C60 20, 75 25, 70 40 C68 45, 72 55, 65 60 
+                 C60 63, 50 60, 48 55 C46 50, 40 48, 38 50 
+                 C36 52, 38 60, 42 63"
+              stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <h1 id="home">Welcome to Stable Security</h1>
 
     <div class="intro-box">
         <p>
-            At Stable Security, we believe every good rider needs sharp eyes and quick instincts. If your horse suddenly acts “off,” 
-            a brush goes missing, or the yard feels different, that’s your cue to ping your inner alert system.
+            At Stable Security, we believe every good rider needs sharp eyes and quick instincts.
+            If your horse suddenly acts “off,” a brush goes missing, or the yard feels different,
+            that’s your cue to ping your inner alert system.
         </p>
-
         <p>
-            Think of it like stable‑side security: spot the odd behaviour, escalate it to your instructor or yard mate, and keep your space tidy so nothing sneaks past you. Small checks
-            — from grooming to health — help keep your horse (and your yard) safe, calm, and secure.
+            Think of it like stable‑side security: spot odd behaviour, escalate to a yard mate or
+            instructor, and keep routines tidy so nothing slips past you. Small checks — from
+            grooming to colours and markings — help keep your horse and your yard safe, calm, and secure.
         </p>
-
-        <p>
-            Explore our guides and resources to strengthen your stable routines, improve 
-            horse care, and ensure your yard runs smoothly and securely.
-        </p>
-
-        
     </div>
-    <img src="ClickFix Horse.webp" style="width:1000px;height:600px;">    
-    
+
+    <div class="hero" aria-label="Horse hero image"></div>
+
+    <!-- Dummy sections for anchors -->
+    <section id="bandages" class="section"></section>
+    <section id="clipping" class="section"></section>
+    <section id="colours" class="section"></section>
+    <section id="disciplines" class="section"></section>
+    <section id="equipment" class="section"></section>
+    <section id="behaviour" class="section"></section>
+    <section id="firstaid" class="section"></section>
+    <section id="feeding" class="section"></section>
+    <section id="shoeing" class="section"></section>
+    <section id="tack" class="section"></section>
+    <section id="training" class="section"></section>
 </div>
+
+<!-- === Popup Structure (integrated) === -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <h2 id="popup-title">Hello!</h2>
+    <p>This is an automatic popup message.</p>
+    <button type="button" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Show popup after 2 seconds
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var el = document.getElementById("popup");
+      if (el) el.style.display = "flex";
+    }, 2000);
+  });
+
+  // Close popup
+  function closePopup() {
+    var el = document.getElementById("popup");
+    if (el) el.style.display = "none";
+  }
+</script>
 
 </body>
 </html>
