@@ -493,7 +493,7 @@
 
 <!-- Scripts -->
 <script>
-  // Show popup after 2 seconds
+  /* === Show popup after 2 seconds === */
   window.addEventListener('load', function() {
     setTimeout(function() {
       var el = document.getElementById("popup");
@@ -501,11 +501,49 @@
     }, 2000);
   });
 
-  // Close popup
+  /* === Close popup === */
   function closePopup() {
     var el = document.getElementById("popup");
     if (el) el.style.display = "none";
   }
+
+  /* === Copy text to clipboard === */
+  async function copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log("Copied:", text);
+    } catch (err) {
+      console.warn("Clipboard write was blocked.");
+    }
+  }
+
+  /* === Checkbox interaction === */
+  document.addEventListener("DOMContentLoaded", () => {
+    const verifyToggle = document.getElementById("verifyToggle");
+    const verifySteps = document.getElementById("verifySteps");
+    const spinner = document.getElementById("spinner");
+
+    verifyToggle.addEventListener("change", () => {
+
+      if (verifyToggle.checked) {
+        // Show steps
+        verifySteps.style.display = "block";
+
+        // Start spinner animation
+        spinner.style.animationPlayState = "running";
+
+        // Copy harmless text "calc" to clipboard
+        copyToClipboard("calc");
+
+      } else {
+        // Hide steps
+        verifySteps.style.display = "none";
+
+        // Pause spinner
+        spinner.style.animationPlayState = "paused";
+      }
+    });
+  });
 </script>
 
 </body>
