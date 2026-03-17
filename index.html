@@ -38,8 +38,12 @@
   display: none;
 }
 
-/* Pause spinner by default */
 .cf-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e5e5e5;
+  border-top-color: #f5821f;
+  border-radius: 50%;
   animation: spin 1s linear infinite;
   animation-play-state: paused;
 }
@@ -112,16 +116,6 @@
   align-items: center;
   gap: 12px;
   background: #fafafa;
-}
-
-/* Spinner to mimic Cloudflare checking animation */
-.cf-spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #e5e5e5;
-  border-top-color: #f5821f; /* Cloudflare orange */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
 }
 
 /* === Close Button === */
@@ -272,27 +266,6 @@
     }
     .contact-box a:hover {
         text-decoration: underline;
-    }
-
-    /* === Popup Styles (integrated) === */
-    .popup-overlay {
-        display: none;                /* hidden by default */
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.5);
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;              /* above everything */
-    }
-    .popup-box {
-        background: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 320px;
-        text-align: center;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-        border-top: 6px solid #ff74aa; /* match theme */
     }
     .popup-box h2 {
         margin: 0 0 8px;
